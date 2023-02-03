@@ -54,18 +54,63 @@
                     </div>
 
                     <div class=" col-md-6 col-lg-2">
-                      <label for="validationCustom04" class="form-label fw-semibold">Tipo de Contracto:</label>
-                      <select class="form-select shadow-sm" id="validationCustom04" required>
+                      <label for="tipoContrato" class="form-label fw-semibold">Tipo de Contracto:</label>
+                      <select class="form-select shadow-sm" id="tipoContrato" required>
                         <option selected disabled value="">Seleccione...</option>
-                        <option value="1">Contratista</option>
-                        <option value="2">Planta</option>
+                        <option value="contratista">Contratista</option>
+                        <option value="planta">Planta</option>
                       </select>
                       <div class="invalid-feedback">
                         &Eacute;ste campo es requerido!
                       </div>
                     </div>
 
-                    
+                    <dil class="col-12">
+                      <div class="row d-none" id="datosPlanta">
+                        <div class=" col-md-4">
+                            <label for="valorHora" class="form-label fw-semibold">Valor de la Hora:</label>
+                            <input type="number" class="form-control shadow-sm" id="valorHora" required>
+                            <div class="invalid-feedback">
+                              &Eacute;ste campo es requerido!
+                            </div>
+                        </div>
+
+                        <div class=" col-md-4">
+                          <label for="valorExtra" class="form-label fw-semibold">Valor Extra:</label>
+                          <input type="number" class="form-control shadow-sm" id="valorExtra" required>
+                          <div class="invalid-feedback">
+                            &Eacute;ste campo es requerido!
+                          </div>
+                        </div>
+
+                        <div class=" col-md-4">
+                          <label for="deducciones" class="form-label fw-semibold">Total Deducciones:</label>
+                          <input type="number" class="form-control shadow-sm" id="deducciones" required>
+                          <div class="invalid-feedback">
+                            &Eacute;ste campo es requerido!
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="row d-none" id="datosContratista">
+                        <div class=" col-md-6">
+                            <label for="valorHoraContratista" class="form-label fw-semibold">Valor de la Hora:</label>
+                            <input type="number" class="form-control shadow-sm" id="valorHoraContratista" required>
+                            <div class="invalid-feedback">
+                              &Eacute;ste campo es requerido!
+                            </div>
+                        </div>
+                        <div class=" col-md-6">
+                          <label for="horasTrabajdas" class="form-label fw-semibold">Horas Trabajadas en el Mes:</label>
+                          <input type="number" class="form-control shadow-sm" id="horasTrabajdas" required>
+                          <div class="invalid-feedback">
+                            &Eacute;ste campo es requerido!
+                          </div>
+                        </div>
+
+                      </div>
+                    </dil>
 
                     <div class="col-12 py-2">
                       <button class="btn btn-lg btn-primary shadow-sm" type="submit">Enviar Datos <i class="bi bi-send-fill"></i></button>
@@ -79,5 +124,6 @@
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- JS Validación Form -->
     <script src="../assets/js/validationForm.js"></script>
+    <script src="../assets/js/app.js"></script>
 </body>
 </html>
