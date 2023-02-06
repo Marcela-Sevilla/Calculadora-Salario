@@ -18,6 +18,7 @@ $objPlanta->setValorExtras($valorExtra);
 $objPlanta->calcularSalario();
 
 $json = array(
+    'contrato' => 'planta',
     'identificacion' => $objPlanta->getIdentificacion(),
     'nombre' => $objPlanta->getNombre(),
     'cargo' => $objPlanta->getCargo(),
