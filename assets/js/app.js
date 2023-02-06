@@ -15,13 +15,30 @@ const crearTabla = function(listaDatos, contrato){
             <th>Total Deducciones</th>
         </tr>
         <tr>
-            <td>${listaDatos.valorHora}</td>
-            <td>${listaDatos.valorExtra}</td>
-            <td>${listaDatos.deducciones}</td>
+            <td>$${listaDatos.valorHora}</td>
+            <td>$${listaDatos.valorExtra}</td>
+            <td>$${listaDatos.deducciones}</td>
         </tr>
         <tr>
             <th>Total Salario</th>
-            <td colspan="2">${listaDatos.salario}</td>
+            <td colspan="2">$${listaDatos.salario}</td>
+        </tr>`;
+    }else{
+        template = `<tr>
+            <td>${listaDatos.identificacion}</td>
+            <td>${listaDatos.nombre}</td>
+            <td>${listaDatos.cargo}</td>
+        </tr>
+        
+        <tr>
+            <th>Valor de la Hora</th>
+            <th>Total de Horas Trabajadas en el Mes</th>
+            <th>Salario</th>
+        </tr>
+        <tr>
+            <td>$${listaDatos.valorHora}</td>
+            <td>${listaDatos.totalHora}</td>
+            <td>$${listaDatos.salario}</td>
         </tr>`;
     }
     $('#bodyTable').html(template);
@@ -53,6 +70,8 @@ $('#formEmpleados').submit(function(e){
 
     if($('#tipoContrato').val() === 'planta'){
         urlControll = 'http://localhost/Calculadora_Salario/controller/plantasController.php';
+    }else{
+        urlControll = 'http://localhost/Calculadora_Salario/controller/contratistasController.php';
     }
 
     $.post(urlControll, datosPost, function(response){
