@@ -1,35 +1,39 @@
-const mostrarTipoContrato = document.getElementById('tipoContrato');
-const formEmpleados = document.getElementById('formEmpleados');
+let urlControll = '';
 
-const valorInput = function(input){
-    return document.getElementById(input).value;
-}
-
-mostrarTipoContrato.addEventListener('change', (e) =>{
-    if(mostrarTipoContrato.value === 'planta'){
-        document.getElementById('datosPlanta').classList.remove('d-none');
-        document.getElementById('datosContratista').classList.add('d-none');
+$("#tipoContrato").change(function() {
+    if($('#tipoContrato').val() === 'planta'){
+        $('#datosPlanta').removeClass('d-none');
+        $('#datosContratista').addClass('d-none');
     }else{
-        document.getElementById('datosPlanta').classList.add('d-none');
-        document.getElementById('datosContratista').classList.remove('d-none');
+        $('#datosPlanta').addClass('d-none');
+        $('#datosContratista').removeClass('d-none');
     }
 });
 
-formEmpleados.addEventListener('submit', (e) =>{
+$('#formEmpleados').submit(function(e){
     e.preventDefault();
 
-    const documento = valorInput('documento');
-    const nombreEmpleado = valorInput('nombreEmpleado');
-    const cargoEmpleado = valorInput('cargoEmpleado');
-    const tipoContrato = valorInput('tipoContrato');
+    const datosPost = {
+        documento: $('#documento').val(),
+        nombreEmpleado: $('#nombreEmpleado').val(),
+        cargoEmpleado: $('#cargoEmpleado').val(),
+        valorHora: $('#valorHora').val(),
+        valorExtra: $('#valorExtra').val(),
+        deducciones: $('#deducciones').val(),
+        valorHoraContratista: $('#valorHoraContratista').val(),
+        horasTrabajadas: $('#horasTrabajadas').val(),
+    };
 
-    if(tipoContrato === 'planta'){
-        const valorHora = valorInput('valorHora');
-        const valorExtra = valorInput('valorExtra');
-        const deducciones = valorInput('deducciones');
-    }else{
-        const valorHora = valorInput('valorHoraContratista');
-        const horasTrabajadas = valorInput('horasTrabajadas');
+    if($('#tipoContrato').val() === 'planta'){
+        urlControll = 'http://localhost/Calculadora_Salario/controller/plantasController.php';
     }
 
-});
+    $.post(urlControll, datosPost, function(response){
+        let mensaje = JSON.parse(response);
+        console.log(mensaje)
+        
+        $('#formEmpleados').removeClass('was-validated');
+        $('#formEmpleados').trigger('reset');
+    });
+
+})
