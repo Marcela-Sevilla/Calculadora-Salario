@@ -42,6 +42,7 @@ const crearTabla = function(listaDatos, contrato){
         </tr>`;
     }
     $('#bodyTable').html(template);
+    $('#contrato').html(contrato);
 }
 
 $("#tipoContrato").change(function() {
@@ -69,9 +70,9 @@ $('#formEmpleados').submit(function(e){
     };
 
     if($('#tipoContrato').val() === 'planta'){
-        urlControll = 'http://localhost/Calculadora_Salario/controller/plantasController.php';
+        urlControll = 'http://localhost/Calculadora-Salario/controller/plantasController.php';
     }else{
-        urlControll = 'http://localhost/Calculadora_Salario/controller/contratistasController.php';
+        urlControll = 'http://localhost/Calculadora-Salario/controller/contratistasController.php';
     }
 
     $.post(urlControll, datosPost, function(response){

@@ -16,7 +16,7 @@ $objContratista->setValorHoras($valorHoraContratista);
 $objContratista->calcularSalario($horasTrabajadas, $valorHoraContratista);
 
 $json = array(
-    'contrato' => 'contatista',
+    'contrato' => 'contratista',
     'identificacion' => $objContratista->getIdentificacion(),
     'nombre' => $objContratista->getNombre(),
     'cargo' => $objContratista->getCargo(),
